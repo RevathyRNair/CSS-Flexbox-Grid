@@ -1,0 +1,50 @@
+html, body {
+    background-color: bisque;
+    margin: 10px;
+    font-size: 30px;
+}
+
+p {
+    color: blue;
+    text-align: center;
+}
+
+.flexbox-header > div{
+    display: flex;
+    font-size: 20;
+    padding: 10px 20px;
+}
+
+.flexbox-header {
+    background-color: #96ceb4;
+    color: white;
+}
+
+.header {
+    background-color: #96ceb4;
+}
+
+.header :nth-child(2) {
+    padding: 0 40px;
+}
+
+.menu {
+    background-color: #ff6f69;
+}
+
+.content {
+    background-color: #ffcc5c;
+}
+
+.footer {
+    background-color: #88d8b0;
+}
+
+.grid-page > div {
+    display: flex;
+    color: white;
+    align-items: center;
+    padding: 20px;
+    
+    
+}

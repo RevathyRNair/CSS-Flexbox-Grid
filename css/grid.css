@@ -1,0 +1,167 @@
+
+/*========================================*/
+/* This section is for grid basics sample */
+/*========================================*/
+
+.container {
+    display: grid;
+    /*grid-template-columns: 200px auto 200px; */
+    /*grid-template-columns: 1fr 1fr 1fr; /* -----each of the column will grow/shrik equally as screen size changes----- */
+    /*grid-template-columns: repeat(3, 1fr);
+    /*grid-template-rows: 50px 50px; */
+    /*grid-template-rows: repeat(2, 50px); /*----- same as writing grid-template-rows: 50px 50px;----- */
+    grid-gap: 3px; 
+
+    /* -----shorthand row/column -----*/
+    grid-template: repeat(2, 50px) / repeat(3, 1fr);  
+}
+
+/*=============================================*/
+/* This section is for grid positioning sample */
+/*=============================================*/
+
+/* -----Positioning items - display HEADER-1st line, MENU, CONTENT-2nd line, FOOTER-3rd line----- */
+
+.container1 {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+   /* grid-template-columns: repeat(2, 1fr);*/
+
+   /* -----if we don't want all columns to be equal width, use below -----*/
+   /*grid-template-columns: 1fr 4fr;*/
+
+   /*-----if more columns needs to be added, then instead of above code, use below format -----*/
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto 40px; /*if we give 40px 40px 40px, it shows only 2 rows. why? */
+
+    /*-----grid template area representation----- */
+    grid-template-areas: 
+        "m h h h h h h h h h h h"
+        "m c c c c c c c c c c c"
+        "m f f f f f f f f f f f";
+        /*if we use dots (.) instead of any letter in the corners, we can add blank space */
+}
+
+.header {
+    /* -----to make only HEADER the entire 1st row----- */
+    
+    /*grid-column-start: 1;
+    grid-column-end: 3;*/
+
+    /*-----shorthand-----*/
+    /*grid-column: 1/3;*/
+
+    /*grid-column: 2/-1; */
+
+    /*-----grid area------*/
+    grid-area: h;
+}
+
+.menu {
+    /*grid-row: 1/-1;*/
+    
+    /*-----grid area------*/
+    grid-area: m;
+}
+.content {
+    /*grid-column: 2/-1;*/
+
+    /*-----grid area------*/
+    grid-area: c;
+}
+
+.footer {
+    /*----- to make only FOOTER the entire last row----- */
+
+    /*grid-column: 1/3; */
+    /*grid-column: 1/span 2; */
+
+    /*-----if we don't know the column span, to extend the footer till last column, use -1 -----*/
+    /*grid-column: 2/-1; */
+
+    /*-----grid area------*/
+    grid-area: f;
+}
+
+/*==================================================*/
+/* This section is for advanced grid options sample */
+/*==================================================*/
+
+.container2{
+    display: grid;
+    grid-gap: 3px;
+
+    /*-----columns will be minimum 100px wide and if there is any extra space, it will distribute it equally as 1fr-----*/
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /*-----the below line can be removed if using implicit rows-----*/
+    /*grid-template-rows: repeat(2, 100px);*/
+
+    /*-----implicit rows - to automatically add new rows as the screen size changes-----*/
+    grid-auto-rows: 100px;
+}
+
+/*=======================================*/
+/* This section is for Grid Image sample */
+/*=======================================*/
+
+.container3 {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 75px;
+    /*-----to fill the blank spaces in the image grid-----*/
+    grid-auto-flow: dense; /*row is the default value */
+}
+
+.horizontal {
+   /* grid-column: auto/span 2;*/
+
+   /*-----same as below-----*/
+   grid-column: span 2; 
+}
+
+.vertical {
+    grid-row: span 2;
+}
+
+.big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/*=======================================*/
+/* This section is for named line sample */
+/*=======================================*/
+
+.container-namedline {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+    grid-template-rows: [main-start] 40px [content-start] auto [content-end] 40px [main-end];
+}
+
+.header-namedline {
+    /*grid-column: main-start / main-end;*/
+    
+    /*-----same as below-----*/
+    grid-column: main;
+}
+
+.content-namedline {
+    /*grid-column: content-start / content-end;*/
+    /*-----same as below-----*/
+    /*grid-column: content;*/
+
+    /*-----in content area we can specify as grid-area since it forms a rectangle of content. That means we have boxed in an area 
+    with content lines */
+    grid-area: content;
+
+}
+
+.footer-namedline {
+    /*grid-column: main-start / main-end;*/
+    /*-----same as below-----*/
+    grid-column: main;
+}

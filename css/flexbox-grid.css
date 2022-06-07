@@ -1,0 +1,33 @@
+.flexbox-header {
+    display: flex;
+}
+
+.flexbox-header > div:nth-child(3) {
+    margin-left: auto;
+}
+
+.grid-page {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 50px 200px 50px;
+}
+
+.header {
+    grid-column: 1/-1;
+}
+
+.header > div:nth-child(3) {
+    margin-left: auto;
+}
+
+.menu {
+    grid-column: 1/2;
+}
+
+.content {
+    grid-column: 2/-1;
+}
+
+.footer {
+    grid-column: 1/-1;
+}
